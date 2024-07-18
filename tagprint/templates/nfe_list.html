@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+{% block content %}
+    
+    <div class="bg-gray">
+        <div class="teste">Notas Fiscais</div>
+        <table class="table1">
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Remetente</th>
+                    <th>Destinatário</th>
+                    <th>Cidade</th>
+                    <th>Gerar</th>
+                    <th>Imprimir</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for nfe in nfes %}
+                    <tr>
+                        <td>{{ nfe.number }}</td>
+                        <td>{{ nfe.sender }}</td>
+                        <td>{{ nfe.recipient }}</td>
+                        <td>{{ nfe.city }}</td>
+                        <td>
+                            <form action="{% url 'generate_tag' nfe.number %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Gerar Etiqueta</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="{% url 'print_tag' nfe.number %}">
+                                <button type="submit">Imprimir</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}

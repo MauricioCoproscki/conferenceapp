@@ -1,3 +1,1 @@
-# conferenceapp
-
-Teste explicativo a ser adicionado
+# ajustes a sere feitos

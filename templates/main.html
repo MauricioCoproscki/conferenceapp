@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Notas Fiscais</title>
+    <style>
+
+    .table1 {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .table1 th , .table1 td{
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .teste{
+        background-color: #fa9408 !important;
+        color: #ffffff;
+        border: 2px solid black !important;
+        border-radius: 3px;
+        font-size: 34px;
+
+    }
+
+
+    .table2 {
+    width: 100%;
+    border-collapse: collapse;
+    }
+
+    .table2 th, .table2 td {
+    padding: 1px;
+    word-wrap: break-word;
+    border: none;
+    color: #000;
+    }
+       
+    body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    }
+ 
+    .container {
+    width: 300px;
+    height: 300px;
+    margin: 120px auto;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    background-color: #ffffff; 
+    text-align: justify;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    }
+
+    .container .div{
+        width: 120px;
+        height: 120px;
+    }
+    
+    .titulo {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+    .intechlog {
+        font-weight: bold;
+        font-size: 30px;
+    }
+    
+    .qrcode img {
+    width: 135px;
+    height: 135px;
+    }
+    
+    .emissao {
+    font-size: 12px;
+    margin-top: 30px;
+    }
+
+    .tamanho1{
+        font-size: 16px;
+    }
+
+    .remetente, .destinatario {
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Permite que o texto longo quebre para não ultrapassar o contêiner */
+    }
+
+    .titulo1 {
+        text-align: center;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    
+    .bg-gray{
+        background-color: #373636 !important;
+        color: #ffffff;
+    }
+
+    </style>
+</head>
+<body class="bg-gray">
+    {% block content %}
+    <!-- Conteúdo específico da página vai aqui -->
+    {% endblock %}
+</body>
+</html>

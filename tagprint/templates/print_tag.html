@@ -1,0 +1,74 @@
+{% extends "main.html" %}
+{% block content %}
+{% if tags %}
+{% for tag in tags %}
+
+<div class="container">
+   <table class="table2">
+     <thead style="display: none;">
+       <tr>
+         <th>Coluna 1</th>
+         <th>Coluna 2</th>
+         <th>Coluna 3</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td colspan="2">
+           <div>
+             <span class="intechlog">INTECHLOG</span>
+           </div>
+         </td>
+         <td>
+          <div class="titulo1">
+           <span>U.M:</span>
+          </div>
+         </td>
+       </tr>
+       <tr>
+         <td colspan="2">
+           <p class="tamanho1">NF-e: {{ nfe.number }}</p>
+         </td>
+         <td>
+          <div class="titulo1">
+           <p class="tamanho1">{{tag.id}}</p>
+          </div>
+         </td>
+       </tr>
+       <tr>
+         <td colspan="2">
+           <p class="tamanho1">{{ nfe.city }}</p>
+         </td>
+         <td>
+          <div class="titulo1">
+           <p class="tamanho1">{{ tag.sequence }}/{{ total_tags }}</p>
+          </div>
+         </td>
+       </tr>
+       <tr>
+         <td colspan="2" rowspan="4">
+           <div class="remetente">
+             <Span class="titulo">Remetente:</Span>
+             <p class="tamanho1">{{ nfe.sender|truncatewords:2 }}</p>
+           </div>
+           <div class="destinatario">
+             <span class="titulo">Destinatário:</span>
+             <p class="tamanho1">{{ nfe.recipient|truncatewords:2}}</p>
+           </div>
+           <div class="emissao">Emissão: {{tag.created_at|date:"d/m/Y H:i"}}</div>
+         </td>
+         <td rowspan="4">
+           <div class="qrcode">
+             <img src="{{ tag.qr_code.url }}" alt="QR Code">
+           </div>
+         </td>
+         
+       </tr>
+     </tbody>
+   </table>
+ </div>    
+{% endfor %}
+{% else %}
+<h1>Nenhuma etiqueta gerada ainda.</h1>
+{% endif %}
+{% endblock %}
